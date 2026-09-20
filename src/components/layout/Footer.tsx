@@ -97,7 +97,16 @@ export const Footer: React.FC = () => {
                   <span className="block text-[11px] uppercase tracking-wider text-embta-slate font-semibold">
                     Official Email
                   </span>
-                  <span className="text-white font-mono">{siteConfig.contact.email}</span>
+                  {siteConfig.contact.email.includes('@') && !siteConfig.contact.email.includes('[') ? (
+                    <a
+                      href={`mailto:${siteConfig.contact.email}`}
+                      className="text-white hover:text-embta-green-light font-mono underline transition-colors"
+                    >
+                      {siteConfig.contact.email}
+                    </a>
+                  ) : (
+                    <span className="text-white font-mono">{siteConfig.contact.email}</span>
+                  )}
                 </div>
               </li>
 

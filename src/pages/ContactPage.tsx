@@ -86,9 +86,36 @@ export const ContactPage: React.FC = () => {
 
     setStatus('loading');
 
-    // Simulate API request submission (frontend-only prepared for future backend)
+    const targetEmail = siteConfig.contact.formRecipientEmail || siteConfig.contact.email;
+    const isRealEmail = targetEmail && targetEmail.includes('@') && !targetEmail.includes('[');
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1400));
+      if (isRealEmail) {
+        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            phone: formData.phoneNumber,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            _subject: `New EMBTA Portal Inquiry: ${formData.subject} (from ${formData.fullName})`,
+            _template: 'table',
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Form submission service error');
+        }
+      } else {
+        // Fallback simulation when placeholder is active
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+      }
+
       setStatus('success');
       setFormData({
         fullName: '',
@@ -230,9 +257,18 @@ export const ContactPage: React.FC = () => {
                         <span className="text-[11px] font-bold uppercase tracking-wider text-embta-slate-dim block">
                           Official Correspondence
                         </span>
-                        <span className="text-white font-mono font-medium">
-                          {siteConfig.contact.email}
-                        </span>
+                        {siteConfig.contact.email.includes('@') && !siteConfig.contact.email.includes('[') ? (
+                          <a
+                            href={`mailto:${siteConfig.contact.email}`}
+                            className="text-white hover:text-embta-green-light font-mono font-medium underline transition-colors"
+                          >
+                            {siteConfig.contact.email}
+                          </a>
+                        ) : (
+                          <span className="text-white font-mono font-medium">
+                            {siteConfig.contact.email}
+                          </span>
+                        )}
                       </div>
                     </div>
 

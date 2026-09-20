@@ -9,11 +9,16 @@ export const siteConfig = {
   logoUrl: '/assets/embta-logo.png',
   copyright: '© 2026 Eastern Maring Business & Traders Association. All rights reserved.',
   
-  // Mandatory Official Placeholders
+  // Mandatory Official Contact & Form Settings
+  // NOTE: Updating `email` here automatically updates:
+  // 1. The Global Website Footer display & mailto link
+  // 2. The Contact Desk Information Card
+  // 3. The destination inbox where Contact Form submissions are delivered!
   contact: {
     address: '[Association Address]',
     phone: '[Official Phone Number]',
-    email: '[Official Email Address]',
+    email: '[Official Email Address]', // e.g. 'secretariat@embta-org.in' or 'contact@embta.org'
+    formRecipientEmail: '', // Optional: If empty, defaults to `email` above for form delivery
     officeHours: '[Office Hours]',
     emergencyDesk: '[Emergency Highway Transit Desk]',
   },
