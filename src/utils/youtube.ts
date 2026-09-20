@@ -1,3 +1,5 @@
+import embtaLogo from '../assets/embta-logo.png';
+
 /**
  * Extracts the YouTube Video ID from various URL formats without requiring external API.
  * Supports:
@@ -44,6 +46,6 @@ export function getYouTubeEmbedUrl(urlOrId: string): string {
  */
 export function getYouTubeThumbnail(urlOrId: string): string {
   const videoId = extractYouTubeId(urlOrId);
-  if (!videoId) return '/assets/embta-logo.png';
+  if (!videoId) return embtaLogo;
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 }

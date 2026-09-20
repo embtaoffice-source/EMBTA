@@ -1,4 +1,5 @@
 import { NavItem } from '../types';
+import embtaLogo from '../assets/embta-logo.png';
 
 export const siteConfig = {
   name: 'Eastern Maring Business & Traders Association',
@@ -6,7 +7,7 @@ export const siteConfig = {
   motto: '“Combine, Syndicate a Trust”',
   headline: 'Connecting Businesses. Strengthening Communities.',
   supportingText: 'Building connections, encouraging collaboration and supporting business and community development.',
-  logoUrl: '/assets/embta-logo.png',
+  logoUrl: embtaLogo,
   copyright: '© 2026 Eastern Maring Business & Traders Association. All rights reserved.',
   
   // Official Institutional Credentials
