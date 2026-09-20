@@ -31,8 +31,8 @@ export const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-embta-navy/95 backdrop-blur-md shadow-glass-sm border-b border-embta-surface-border/80 py-2.5'
-          : 'bg-gradient-to-b from-embta-navy-dark/90 via-embta-navy/70 to-transparent backdrop-blur-sm border-b border-white/5 py-4'
+          ? 'bg-embta-navy-dark/95 backdrop-blur-md shadow-glass-sm border-b border-embta-surface-border py-2.5'
+          : 'bg-embta-navy-dark/90 backdrop-blur-md border-b border-embta-surface-border/60 py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

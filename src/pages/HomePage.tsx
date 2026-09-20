@@ -44,14 +44,14 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-embta-navy text-embta-light overflow-hidden">
+    <div className="relative min-h-screen bg-embta-navy text-embta-light overflow-hidden pt-20">
       <SEOHead
         title="Official Portal"
         description="Official Digital Portal of the Eastern Maring Business & Traders Association. Connecting Businesses, Strengthening Communities."
       />
 
       {/* 1. Official Notice Gazette Bar */}
-      <div className="pt-20 bg-embta-navy-dark/90 border-b border-embta-surface-border text-xs py-2 px-4 sm:px-6">
+      <div className="bg-embta-navy-dark/95 border-b border-embta-surface-border text-xs py-2.5 px-4 sm:px-6 relative z-30">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="bg-embta-red text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">
