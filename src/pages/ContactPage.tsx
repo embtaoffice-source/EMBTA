@@ -69,11 +69,12 @@ export const ContactPage: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const key = name === 'name' ? 'fullName' : name === 'phone' ? 'phoneNumber' : name;
+    setFormData((prev) => ({ ...prev, [key]: value }));
 
     // Clear field-specific error as user types
-    if (validationErrors[name as keyof ContactFormData]) {
-      setValidationErrors((prev) => ({ ...prev, [name]: undefined }));
+    if (validationErrors[key as keyof ContactFormData]) {
+      setValidationErrors((prev) => ({ ...prev, [key]: undefined }));
     }
   };
 
@@ -347,7 +348,18 @@ export const ContactPage: React.FC = () => {
                     </div>
                   )}
 
-                  <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  <form
+                    action="https://formsubmit.co/embtaoffice@gmail.com"
+                    method="POST"
+                    onSubmit={handleSubmit}
+                    className="space-y-5"
+                    noValidate
+                  >
+                    {/* FormSubmit Configuration */}
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_subject" value="New EMBTA Portal Official Inquiry" />
+
                     {/* Full Name & Phone Number */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
@@ -359,7 +371,7 @@ export const ContactPage: React.FC = () => {
                         </label>
                         <input
                           id="fullName"
-                          name="fullName"
+                          name="name"
                           type="text"
                           value={formData.fullName}
                           onChange={handleChange}
@@ -386,7 +398,7 @@ export const ContactPage: React.FC = () => {
                         </label>
                         <input
                           id="phoneNumber"
-                          name="phoneNumber"
+                          name="phone"
                           type="tel"
                           value={formData.phoneNumber}
                           onChange={handleChange}
