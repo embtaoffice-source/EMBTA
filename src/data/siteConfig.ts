@@ -17,8 +17,8 @@ export const siteConfig = {
   contact: {
     address: '[Association Address]',
     phone: '[Official Phone Number]',
-    email: '[Official Email Address]', // e.g. 'secretariat@embta-org.in' or 'contact@embta.org'
-    formRecipientEmail: '', // Optional: If empty, defaults to `email` above for form delivery
+    email: 'embtaoffice@gmail.com',
+    formRecipientEmail: 'embtaoffice@gmail.com',
     officeHours: '[Office Hours]',
     emergencyDesk: '[Emergency Highway Transit Desk]',
   },
