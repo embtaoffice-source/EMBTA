@@ -90,7 +90,7 @@ export const HomePage: React.FC = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-embta-blue/50 border border-embta-surface-border text-xs font-bold uppercase tracking-wider text-embta-green-light shadow-glass-sm backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-embta-green animate-pulse" />
-                <span>OFFICIAL APEX ASSOCIATION</span>
+                <span>ESTD. 2022 • GOVT. REGD. NO. 5 OF 2023</span>
               </div>
 
               {/* Title & Acronym */}

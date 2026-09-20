@@ -36,9 +36,14 @@ export const Footer: React.FC = () => {
               {siteConfig.supportingText}
             </p>
 
-            <div className="pt-2 flex items-center gap-2 text-xs text-embta-slate font-medium">
-              <ShieldCheck className="w-4 h-4 text-embta-green" />
-              <span>Apex Regional Commercial & Traders Guild</span>
+            <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-embta-navy-light text-embta-green-light border border-embta-green/30">
+                <ShieldCheck className="w-3.5 h-3.5 text-embta-green" />
+                <span>{siteConfig.regdNo}</span>
+              </span>
+              <span className="px-2.5 py-1 rounded bg-white/5 text-embta-slate border border-white/10">
+                {siteConfig.estd}
+              </span>
             </div>
           </div>
 
@@ -75,9 +80,14 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-embta-green shrink-0 mt-0.5" />
                 <div>
                   <span className="block text-[11px] uppercase tracking-wider text-embta-slate font-semibold">
-                    Address
+                    Head Office
                   </span>
-                  <span className="text-white font-mono">{siteConfig.contact.address}</span>
+                  <span className="text-white font-medium block">
+                    {siteConfig.contact.headOffice}
+                  </span>
+                  <span className="text-embta-slate text-xs font-mono block mt-0.5">
+                    {siteConfig.contact.po}, {siteConfig.contact.ps}, {siteConfig.contact.district}
+                  </span>
                 </div>
               </li>
 
@@ -85,9 +95,14 @@ export const Footer: React.FC = () => {
                 <Phone className="w-4 h-4 text-embta-green shrink-0 mt-0.5" />
                 <div>
                   <span className="block text-[11px] uppercase tracking-wider text-embta-slate font-semibold">
-                    Phone
+                    Telephone Line
                   </span>
-                  <span className="text-white font-mono">{siteConfig.contact.phone}</span>
+                  <a
+                    href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
+                    className="text-white hover:text-embta-green-light font-mono transition-colors"
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
                 </div>
               </li>
 

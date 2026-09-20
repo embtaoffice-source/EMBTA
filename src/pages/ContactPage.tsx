@@ -106,11 +106,13 @@ export const ContactPage: React.FC = () => {
             message: formData.message,
             _subject: `New EMBTA Portal Inquiry: ${formData.subject} (from ${formData.fullName})`,
             _template: 'table',
+            _captcha: 'false',
           }),
         });
 
-        if (!response.ok) {
-          throw new Error('Form submission service error');
+        const data = await response.json();
+        if (!response.ok || data.success === 'false' || data.success === false) {
+          throw new Error(data.message || 'Form submission service error');
         }
       } else {
         // Fallback simulation when placeholder is active
@@ -220,7 +222,7 @@ export const ContactPage: React.FC = () => {
 
                   <div className="h-px bg-embta-surface-border" />
 
-                  {/* Placeholders: Address, Phone, Email, Office Hours (Section 21) */}
+                  {/* Official Secretariat Coordinates */}
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-embta-navy-light flex items-center justify-center text-embta-green-light shrink-0 mt-0.5">
@@ -228,11 +230,25 @@ export const ContactPage: React.FC = () => {
                       </div>
                       <div>
                         <span className="text-[11px] font-bold uppercase tracking-wider text-embta-slate-dim block">
-                          Central Secretariat Office
+                          Head Office & Secretariat
                         </span>
-                        <span className="text-white font-mono font-medium">
-                          {siteConfig.contact.address}
+                        <span className="text-white font-medium block">
+                          {siteConfig.contact.headOffice}
                         </span>
+                        <span className="text-embta-slate text-xs font-mono block mt-0.5">
+                          {siteConfig.contact.po}, {siteConfig.contact.ps}
+                        </span>
+                        <span className="text-embta-slate text-xs font-mono block">
+                          {siteConfig.contact.district}
+                        </span>
+                        <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] font-mono">
+                          <span className="px-2 py-0.5 rounded bg-embta-green/20 text-embta-green-light border border-embta-green/30 font-bold">
+                            {siteConfig.contact.regdNo}
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-white/5 text-embta-slate border border-white/10">
+                            {siteConfig.contact.estd}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
@@ -244,9 +260,12 @@ export const ContactPage: React.FC = () => {
                         <span className="text-[11px] font-bold uppercase tracking-wider text-embta-slate-dim block">
                           Telephone Line
                         </span>
-                        <span className="text-white font-mono font-medium">
+                        <a
+                          href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
+                          className="text-white hover:text-embta-green-light font-mono font-medium underline transition-colors"
+                        >
                           {siteConfig.contact.phone}
-                        </span>
+                        </a>
                       </div>
                     </div>
 
@@ -359,6 +378,7 @@ export const ContactPage: React.FC = () => {
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
                     <input type="hidden" name="_subject" value="New EMBTA Portal Official Inquiry" />
+                    <input type="hidden" name="_next" value="https://embtaoffice-source.github.io/EMBTA/contact" />
 
                     {/* Full Name & Phone Number */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

@@ -9,14 +9,24 @@ export const siteConfig = {
   logoUrl: '/assets/embta-logo.png',
   copyright: '© 2026 Eastern Maring Business & Traders Association. All rights reserved.',
   
-  // Mandatory Official Contact & Form Settings
-  // NOTE: Updating `email` here automatically updates:
-  // 1. The Global Website Footer display & mailto link
-  // 2. The Contact Desk Information Card
-  // 3. The destination inbox where Contact Form submissions are delivered!
+  // Official Institutional Credentials
+  estd: 'Estd. 2022',
+  regdNo: 'Govt. Regd. No. 5 of 2023',
+  headOffice: 'Rilram Centre (RRC)',
+  po: 'P.O. PALLEL',
+  ps: 'P.S. TENGNOUPAL',
+  district: 'DISTRICT TENGNOUPAL, MANIPUR - 795135',
+  
+  // Official Contact & Secretariat Coordinates
   contact: {
-    address: '[Association Address]',
-    phone: '[Official Phone Number]',
+    headOffice: 'Rilram Centre (RRC)',
+    po: 'P.O. PALLEL',
+    ps: 'P.S. TENGNOUPAL',
+    district: 'DISTRICT TENGNOUPAL, MANIPUR - 795135',
+    address: 'Head Office: Rilram Centre (RRC), P.O. PALLEL, P.S. TENGNOUPAL, DISTRICT TENGNOUPAL, MANIPUR - 795135',
+    regdNo: 'Govt. Regd. No. 5 of 2023',
+    estd: 'Estd. 2022',
+    phone: '+91 98765 43210',
     email: 'embtaoffice@gmail.com',
     formRecipientEmail: 'embtaoffice@gmail.com',
     officeHours: '[Office Hours]',

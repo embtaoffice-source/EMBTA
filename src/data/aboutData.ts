@@ -2,7 +2,7 @@ import { TimelineMilestone } from '../types';
 
 export const aboutData = {
   hero: {
-    badge: 'ESTD. [Established Year] • APEX COMMERCIAL BODY',
+    badge: 'ESTD. 2022 • GOVT. REGD. NO. 5 OF 2023',
     title: 'ABOUT EMBTA',
     subtitle: 'The Eastern Maring Business & Traders Association is the constitutional collective representing regional enterprises, commerce facilitators, and grassroots entrepreneurs.',
   },
@@ -21,9 +21,9 @@ export const aboutData = {
     foundingInfoPlaceholder: '[Founding Information]',
     milestones: [
       {
-        year: '[Established Year]',
-        title: 'Formal Constitution & Inauguration',
-        description: '[Founding Information] - Assembled by foundational trade representatives to establish a unified commercial voice.',
+        year: '2022',
+        title: 'Foundation & Institutional Accord',
+        description: 'Established at Rilram Centre (RRC), P.O. Pallel, Tengnoupal District (Govt. Regd. No. 5 of 2023) to forge a unified commercial voice for Eastern Maring commerce.',
       },
       {
         year: 'Phase II',
