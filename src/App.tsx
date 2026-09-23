@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { siteConfig } from './data/siteConfig';
@@ -13,6 +13,7 @@ const NewsPage = lazy(() => import('./pages/NewsPage').then((m) => ({ default: m
 const NewsDetailPage = lazy(() => import('./pages/NewsDetailPage').then((m) => ({ default: m.NewsDetailPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
+const AdminPage = lazy(() => import('./pages/AdminPage').then((m) => ({ default: m.AdminPage })));
 
 // Scroll to top helper on route change
 const ScrollToTop: React.FC = () => {
@@ -43,15 +44,25 @@ const PageLoader: React.FC = () => (
   </div>
 );
 
+const PublicLayout: React.FC = () => (
+  <>
+    <Header />
+    <main className="flex-grow">
+      <Outlet />
+    </main>
+    <Footer />
+  </>
+);
+
 export const App: React.FC = () => {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="flex flex-col min-h-screen bg-embta-navy text-embta-light selection:bg-embta-green selection:text-white">
         <ScrollToTop />
-        <Header />
-        <main className="flex-grow">
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Public Routes with Header and Footer */}
+            <Route element={<PublicLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/executive" element={<ExecutivePage />} />
@@ -61,10 +72,12 @@ export const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/404" element={<NotFoundPage />} />
               <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
+            </Route>
+            
+            {/* Admin Route without main Header/Footer */}
+            <Route path="/admin" element={<AdminPage />} />
+          </Routes>
+        </Suspense>
       </div>
     </BrowserRouter>
   );

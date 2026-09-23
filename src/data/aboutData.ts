@@ -10,7 +10,7 @@ export const aboutData = {
   whoWeAre: {
     title: 'WHO WE ARE',
     lead: 'An apex institutional body established to combine commercial strength and syndicate mutual trust.',
-    body: 'The Eastern Maring Business & Traders Association (EMBTA) serves as the primary representative forum for merchant guilds, logistics syndicates, small manufacturers, and retail operators in the region. Formed to defend trade rights, arbitrate interstate freight bottlenecks, and spur collective economic security, EMBTA bridges traditional commerce and progressive modern trade frameworks.',
+    body: 'The Eastern Maring Business & Traders Association (EMBTA) serves as the primary representative forum for merchant guilds, logistics syndicates, small manufacturers, and retail operators in the region.',
     quote: '“Combine, Syndicate a Trust”',
   },
 

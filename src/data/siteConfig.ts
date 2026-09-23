@@ -30,14 +30,14 @@ export const siteConfig = {
     phone: '+91 98765 43210',
     email: 'embtaoffice@gmail.com',
     formRecipientEmail: 'embtaoffice@gmail.com',
-    officeHours: '[Office Hours]',
+    officeHours: 'Monday – Friday, 9AM – 5PM',
     emergencyDesk: '[Emergency Highway Transit Desk]',
   },
 
   socialLinks: [
-    { name: 'Official Bulletin', href: '#', icon: 'FileText' },
-    { name: 'Secretariat Dispatch', href: '#', icon: 'Mail' },
-    { name: 'Public Notices', href: '#', icon: 'Bell' },
+    { name: 'Eastern Maring Business & Traders Association', href: '#', icon: 'FileText' },
+    { name: 'Eastern Maring Business & Traders Association', href: '#', icon: 'Mail' },
+    { name: 'Eastern Maring Business & Traders Association', href: '#', icon: 'Bell' },
   ],
 
   navLinks: [
